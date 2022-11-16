@@ -2,13 +2,6 @@
 # Test and package your PHP project.
 # Add steps that run tests, save build artifacts, deploy, and more:
 # https://docs.microsoft.com/azure/devops/pipelines/languages/php
-- task: AzureRmWebAppDeployment@4
-  inputs:
-    ConnectionType: 'AzureRM'
-    azureSubscription: 'Plateformes MSDN(9c1072fe-f86b-4ae2-85c4-9ee8ff3a5c9b)'
-    appType: 'webAppLinux'
-    WebAppName: 'poc-cms'
-    packageForLinux: '$(System.DefaultWorkingDirectory)/**/*.zip'
 
 trigger:
 - master
@@ -31,3 +24,11 @@ steps:
 
 - script: composer install --no-interaction --prefer-dist
   displayName: 'composer install'
+
+- task: AzureRmWebAppDeployment@4
+  inputs:
+    ConnectionType: 'AzureRM'
+    azureSubscription: 'Plateformes MSDN(9c1072fe-f86b-4ae2-85c4-9ee8ff3a5c9b)'
+    appType: 'webAppLinux'
+    WebAppName: 'poc-cms'
+    packageForLinux: '$(System.DefaultWorkingDirectory)/**/*.zip'
