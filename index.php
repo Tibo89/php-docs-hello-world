@@ -6,7 +6,32 @@
     //$result = pg_query($db_connection, "SELECT lastname FROM employees");
     print("Hello<BR/>");
 
-    $dsn = "pgsql:host=svxazpgsql01.postgres.database.azure.com;port=5432;sslmode=require;dbname=test_cms;user=poc_cms;password=Soleil@49100!";
+    if (!$db_connection) {
+      echo "An error occurred.\n";
+      exit;
+    }
+    
+    $result = pg_query($db_connection, "SELECT * FROM test_schema.test_table;");
+    if (!$result) {
+      echo "<br />An error occurred.<br />";
+      exit;
+    }
+
+    if ($result->num_rows == 0) {
+      echo "<br />0 results<br />";
+    }
+    
+    while ($row = pg_fetch_row($result)) {
+      echo "NOM: $row[1]  Prenom : $row[2]";
+      echo "<br />";
+    }
+
+    $db_connection->close();
+
+
+
+
+    /*$dsn = "pgsql:host=svxazpgsql01.postgres.database.azure.com;port=5432;sslmode=require;dbname=test_cms;user=poc_cms;password=Soleil@49100!";
    
     try{
        $conn = new PDO($dsn);
@@ -30,19 +55,6 @@
        }
     }catch (PDOException $e){
        echo $e->getMessage();
-    }
+    }*/
 
-
-   $sql = "SELECT * FROM test_schema.test_table";
-   $result = $conn->query($sql);
-
-   if ($result->num_rows > 0) {
-   // output data of each row
-   while($row = $result->fetch_assoc()) {
-      echo "id: " . $row["ID"]. " - Name: " . $row["Nom"]. " " . $row["Prenom"]. "<br>";
-   }
-   } else {
-   echo "0 results";
-   }
-   $conn->close();
 ?>
