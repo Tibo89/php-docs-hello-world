@@ -6,7 +6,7 @@
     //$result = pg_query($db_connection, "SELECT lastname FROM employees");
     print("Hello<BR/>");
 
-    $dsn = "pgsql:host=svxazpgsql01.postgres.database.azure.com;port=5432;dbname=test_cms;user=poc_cms;password=AP\kKb>t(HiTZoc.?Gdb";
+    $dsn = "pgsql:host=svxazpgsql01.postgres.database.azure.com;port=5432;dbname=test_cms;user=poc_cms;password=AP\kKb>t(HiTZoc.?Gdb;sslmode=require";
    
     try{
        $conn = new PDO($dsn);
