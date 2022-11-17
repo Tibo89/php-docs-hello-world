@@ -19,7 +19,9 @@
     }
 
     $dsn = "pgsql:host=svxazpgsql01.postgres.database.azure.com;port=5432;dbname=test_cms;user=poc_cms;password=AP\kKb>t(HiTZoc.?Gdb";
-    print("Saut de ligne<BR/>");
+
+    print("<BR/>Saut de ligne<BR/>");
+    
     try{
        $conn = new PDO($dsn);
        
