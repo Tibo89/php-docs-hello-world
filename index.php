@@ -1,6 +1,6 @@
 <?php 
-   echo "Hello World v (quarante douze)!<BR/>";
-   echo "Coucou tout le monde !<BR/>";
+   echo "Hello World v (quarante douze) !<BR/>";
+   echo "Coucou tout le monde et Samy !<BR/>";
    print("Début du script<BR/><BR/>");
 
    $dsn = "pgsql:host=svxazpgsql01.postgres.database.azure.com;port=5432;sslmode=require;dbname=test_cms;user=poc_cms;password=Soleil@49100!";
@@ -23,5 +23,5 @@
       echo $e->getMessage();
    }
 
-   print("<BR/>Fin du script<BR/>");
+   print("<BR/>Fin du script !<BR/>");
 ?>
