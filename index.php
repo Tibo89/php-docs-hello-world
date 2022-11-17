@@ -9,7 +9,7 @@
       $conn = new PDO($dsn);
 
       if($conn){
-         echo "Connecté à $dbname avec succès ! Contenu de la table : <BR/><BR/>";
+         echo "Connecté à la base [test_cms] avec succès ! Contenu de la table [test_table] : <BR/><BR/>";
          $sql = 'SELECT * FROM test_schema.test_table';
          foreach ($conn->query($sql) as $row) {
             print $row['Prenom'] . " " . $row['Nom'] . "<BR/>";
