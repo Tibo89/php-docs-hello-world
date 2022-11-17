@@ -6,7 +6,7 @@
     //$result = pg_query($db_connection, "SELECT lastname FROM employees");
     print("Hello<BR/>");
 
-    $dsn = "pgsql:host=svxazpgsql01.postgres.database.azure.com;port=5432;dbname=test_cms;user=poc_cms;password=AP\kKb>t(HiTZoc.?Gdb;sslmode=require";
+    $dsn = "pgsql:host=svxazpgsql01.postgres.database.azure.com;port=5432;sslmode=require;dbname=test_cms;user=poc_cms;password=AP\kKb>t(HiTZoc.?Gdb";
    
     try{
        $conn = new PDO($dsn);
@@ -19,7 +19,7 @@
     }
 
     $dsn = "pgsql:host=svxazpgsql01.postgres.database.azure.com;port=5432;dbname=test_cms;user=poc_cms;password=AP\kKb>t(HiTZoc.?Gdb";
-   
+    print("Saut de ligne<BR/>");
     try{
        $conn = new PDO($dsn);
        
